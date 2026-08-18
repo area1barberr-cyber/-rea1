@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Área1 Barbearia</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        body {
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.72),
+                    rgba(0, 0, 0, 0.72)
+                ),
+                url("fundo.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+
+        /* =========================
+           CABEÇALHO
+           ========================= */
+
+        header {
+            width: 100%;
+
+            background: rgba(
+                24,
+                24,
+                24,
+                0.85
+            );
+
+            text-align: center;
+
+            padding: 35px 15px;
+        }
+
+
+        .logo {
+            width: 130px;
+            height: 130px;
+
+            object-fit: contain;
+
+            margin-bottom: 15px;
+
+            border-radius: 50%;
+        }
+
+
+        header h1 {
+            color: #d4af37;
+
+            font-size: 32px;
+
+            margin-bottom: 8px;
+        }
+
+
+        header p {
+            color: #ccc;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           CONTEÚDO
+           ========================= */
+
+        .container {
+            width: 100%;
+
+            padding: 20px 12px;
+
+            margin: 0 auto;
+        }
+
+
+        /* =========================
+           TABELA DE PREÇOS
+           ========================= */
+
+        .precos {
+            width: 100%;
+
+            max-width: 520px;
+
+            margin: 0 auto 25px;
+        }
+
+
+        .precos h2 {
+            color: #d4af37;
+
+            font-size: 26px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .tabela-precos {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background: rgba(
+                28,
+                28,
+                28,
+                0.94
+            );
+
+            border-radius: 12px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0, 0, 0, 0.35);
+        }
+
+
+        .tabela-precos tr {
+            border-bottom: 1px solid #333;
+        }
+
+
+        .tabela-precos tr:last-child {
+            border-bottom: none;
+        }
+
+
+        .tabela-precos td {
+            padding: 15px 12px;
+
+            font-size: 15px;
+        }
+
+
+        .tabela-precos td:last-child {
+            text-align: right;
+
+            color: #d4af37;
+
+            font-weight: bold;
+
+            white-space: nowrap;
+        }
+
+
+        /* =========================
+           GALERIA DE FOTOS
+           ========================= */
+
+        .galeria {
+            width: 100%;
+
+            max-width: 520px;
+
+            margin: 30px auto;
+        }
+
+
+        .galeria h2 {
+            color: #d4af37;
+
+            font-size: 26px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .fotos {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .fotos img {
+            width: 100%;
+
+            aspect-ratio: 1 / 1;
+
+            object-fit: cover;
+
+            border-radius: 12px;
+
+            background: #1c1c1c;
+
+            box-shadow:
+                0 5px 15px
+                rgba(0, 0, 0, 0.35);
+        }
+
+
+        /* =========================
+           VÍDEOS
+           ========================= */
+
+        .videos {
+            width: 100%;
+
+            max-width: 520px;
+
+            margin: 30px auto;
+        }
+
+
+        .videos h2 {
+            color: #d4af37;
+
+            font-size: 26px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .lista-videos {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 18px;
+        }
+
+
+        /*
+           NÃO FORÇA 16:9.
+
+           Isso evita cortar vídeos
+           verticais, quadrados ou
+           horizontais.
+        */
+
+        .lista-videos video {
+            display: block;
+
+            width: 100%;
+
+            height: auto;
+
+            max-height: 75vh;
+
+            object-fit: contain;
+
+            border-radius: 15px;
+
+            background: #000;
+
+            box-shadow:
+                0 7px 20px
+                rgba(0, 0, 0, 0.5);
+
+        }
+
+
+        /*
+           DEIXA O VÍDEO USAR O FORMATO
+           ORIGINAL SEM CORTAR.
+        */
+
+        .lista-videos video[poster] {
+            object-fit: contain;
+        }
+
+
+        /* =========================
+           CARTÃO DE AGENDAMENTO
+           ========================= */
+
+        .card {
+            width: 100%;
+
+            max-width: 520px;
+
+            margin: 0 auto;
+
+            background:
+                rgba(28, 28, 28, 0.94);
+
+            padding: 25px 20px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 5px 20px
+                rgba(0, 0, 0, 0.4);
+        }
+
+
+        .card h2 {
+            color: #d4af37;
+
+            font-size: 26px;
+
+            margin-bottom: 22px;
+        }
+
+
+        /* =========================
+           CAMPOS
+           ========================= */
+
+        label {
+            display: block;
+
+            color: #ddd;
+
+            font-size: 15px;
+
+            margin-bottom: 8px;
+
+            margin-top: 16px;
+        }
+
+
+        input,
+        select {
+            display: block;
+
+            width: 100%;
+
+            height: 52px;
+
+            padding: 0 14px;
+
+            background: #292929;
+
+            color: white;
+
+            border:
+                1px solid transparent;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            outline: none;
+        }
+
+
+        input:focus,
+        select:focus {
+            border-color: #d4af37;
+        }
+
+
+        /* =========================
+           BOTÃO WHATSAPP
+           ========================= */
+
+        button {
+            display: block;
+
+            width: 100%;
+
+            height: 54px;
+
+            margin-top: 25px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #25D366;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        button:hover {
+            background: #1ebe5d;
+        }
+
+
+        /* =========================
+           RODAPÉ
+           ========================= */
+
+        footer {
+            width: 100%;
+
+            text-align: center;
+
+            padding: 25px 15px;
+
+            color: #777;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           COMPUTADOR
+           ========================= */
+
+        @media (min-width: 700px) {
+
+            .container {
+                max-width: 560px;
+
+                padding: 50px 20px;
+            }
+
+
+            .card {
+                padding: 30px;
+            }
+
+
+            .galeria,
+            .videos,
+            .precos {
+                max-width: 560px;
+            }
+
+        }
+
+
+        /* =========================
+           CELULAR PEQUENO
+           ========================= */
+
+        @media (max-width: 400px) {
+
+            .logo {
+                width: 110px;
+
+                height: 110px;
+            }
+
+
+            header h1 {
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         TOPO
+         ========================= -->
+
+    <header>
+
+        <img
+            src="logo.png"
+            alt="Logo Area1"
+            class="logo"
+        >
+
+
+        <h1>
+            ÁREA1
+        </h1>
+
+
+        <p>
+            Agende seu horário de forma rápida
+        </p>
+
+    </header>
+
+
+    <main>
+
+        <div class="container">
+
+
+            <!-- =========================
+                 TABELA DE PREÇOS
+                 ========================= -->
+
+            <div class="precos">
+
+                <h2>
+                    💈 Tabela de preços
+                </h2>
+
+
+                <table class="tabela-precos">
+
+
+                    <tr>
+
+                        <td>
+                            ✂️ Corte
+                        </td>
+
+                        <td>
+                            R$ 35
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            💈 Corte + Barba
+                        </td>
+
+                        <td>
+                            R$ 65
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            🪒 Sobrancelha na navalha
+                        </td>
+
+                        <td>
+                            R$ 10
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            🧴 Sobrancelha na cera
+                        </td>
+
+                        <td>
+                            R$ 20
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            ✨ Limpeza de pele
+                        </td>
+
+                        <td>
+                            R$ 50
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            👃 Depilação nariz e orelha
+                        </td>
+
+                        <td>
+                            R$ 20
+                        </td>
+
+                    </tr>
+
+
+                </table>
+
+            </div>
+
+
+            <!-- =========================
+                 FOTOS
+                 ========================= -->
+
+            <div class="galeria">
+
+                <h2>
+                    📸 Nosso trabalho
+                </h2>
+
+
+                <div class="fotos">
+
+
+                    <img
+                        src="foto1.jpg"
+                        alt="Trabalho da Area1"
+                    >
+
+
+                    <img
+                        src="foto2.jpg"
+                        alt="Trabalho da Area1"
+                    >
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 VÍDEOS
+                 ========================= -->
+
+            <div class="videos">
+
+                <h2>
+                    🎥 Conheça nosso trabalho
+                </h2>
+
+
+                <div class="lista-videos">
+
+
+                    <!-- VÍDEO 1 -->
+
+                    <video
+                        controls
+                        playsinline
+                        preload="metadata"
+                        poster="video1-capa.jpg"
+                    >
+
+                        <source
+                            src="video1.mp4"
+                            type="video/mp4"
+                        >
+
+                        Seu navegador não suporta vídeos.
+
+                    </video>
+
+
+                    <!-- VÍDEO 2 -->
+
+                    <video
+                        controls
+                        playsinline
+                        preload="metadata"
+                        poster="video2-capa.jpg"
+                    >
+
+                        <source
+                            src="video2.mp4"
+                            type="video/mp4"
+                        >
+
+                        Seu navegador não suporta vídeos.
+
+                    </video>
+
+
+                    <!-- VÍDEO 3 -->
+
+                    <video
+                        controls
+                        playsinline
+                        preload="metadata"
+                        poster="video3-capa.jpg"
+                    >
+
+                        <source
+                            src="video3.mp4"
+                            type="video/mp4"
+                        >
+
+                        Seu navegador não suporta vídeos.
+
+                    </video>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 AGENDAMENTO
+                 ========================= -->
+
+            <div class="card">
+
+                <h2>
+                    Agende seu horário
+                </h2>
+
+
+                <label for="nome">
+                    Seu nome
+                </label>
+
+
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Digite seu nome"
+                >
+
+
+                <label for="servico">
+                    Escolha o serviço
+                </label>
+
+
+                <select id="servico">
+
+
+                    <option value="">
+                        Selecione uma opção
+                    </option>
+
+
+                    <option value="Corte">
+                        ✂️ Corte — R$ 35
+                    </option>
+
+
+                    <option value="Corte + Barba">
+                        💈 Corte + Barba — R$ 65
+                    </option>
+
+
+                    <option value="Sobrancelha na navalha">
+                        🪒 Sobrancelha na navalha — R$ 10
+                    </option>
+
+
+                    <option value="Sobrancelha na cera">
+                        🧴 Sobrancelha na cera — R$ 20
+                    </option>
+
+
+                    <option value="Limpeza de pele">
+                        ✨ Limpeza de pele — R$ 50
+                    </option>
+
+
+                    <option value="Depilação nariz e orelha">
+                        👃 Depilação nariz e orelha — R$ 20
+                    </option>
+
+
+                </select>
+
+
+                <button
+                    onclick="enviarWhatsApp()"
+                >
+
+                    📱 Agendar pelo WhatsApp
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        © 2026 Area1 Barbearia
+
+    </footer>
+
+
+    <!-- =========================
+         WHATSAPP
+         ========================= -->
+
+    <script>
+
+        function enviarWhatsApp() {
+
+            const nome =
+                document
+                .getElementById("nome")
+                .value
+                .trim();
+
+
+            const servico =
+                document
+                .getElementById("servico")
+                .value;
+
+
+            if (nome === "") {
+
+                alert(
+                    "Digite seu nome!"
+                );
+
+                return;
+
+            }
+
+
+            if (servico === "") {
+
+                alert(
+                    "Escolha uma opção!"
+                );
+
+                return;
+
+            }
+
+
+            const mensagem =
+                `Olá! Meu nome é ${nome} e gostaria de agendar: ${servico}.`;
+
+
+            const numero =
+                "554999522063";
+
+
+            const link =
+                `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+
+            window.location.href =
+                link;
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
